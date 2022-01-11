@@ -48,5 +48,14 @@ namespace NguyenMinhDung_2119110242.DAL.EmployeeDAL
             cmd.ExecuteNonQuery();
             connect.Close();
         }
+        public void DeleteEmployee(EmployeeDTO emp) 
+        {
+            SqlConnection connect = CreateConnection();
+            connect.Open();
+            SqlCommand cmd = new SqlCommand("deleteEmp @idEmployee", connect);
+            cmd.Parameters.Add(new SqlParameter("@idEmployee", emp.idEmployee));
+            cmd.ExecuteNonQuery();
+            connect.Close();
+        }
     }
 }

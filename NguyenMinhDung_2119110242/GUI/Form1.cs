@@ -33,9 +33,7 @@ namespace NguyenMinhDung_2119110242
             List<DepartmentDTO> lstDepart = departBLL.readDepartList();
             foreach (DepartmentDTO item in lstDepart)
             {
-
                 comboUnit.Items.Add(item);
-
             }
             comboUnit.DisplayMember = "Name";
         }
@@ -76,6 +74,28 @@ namespace NguyenMinhDung_2119110242
                 txtId.Text = "";
                 txtName.Text = "";
                 txtPlace.Text = "";
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            EmployeeDTO emp = new EmployeeDTO();
+            DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                emp.idEmployee = txtId.Text;
+                empBLL.DeleteEmployee(emp);
+                int idx = dataGvEmp.CurrentCell.RowIndex;
+                dataGvEmp.Rows.RemoveAt(idx);
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Bạn muốn thoát ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                Application.Exit();
             }
         }
     }
