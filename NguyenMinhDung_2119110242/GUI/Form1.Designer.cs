@@ -92,6 +92,7 @@ namespace NguyenMinhDung_2119110242
             this.btnEdit.TabIndex = 30;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // comboUnit
             // 

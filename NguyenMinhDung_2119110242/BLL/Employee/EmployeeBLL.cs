@@ -24,5 +24,9 @@ namespace NguyenMinhDung_2119110242.BLL.EmployeeBLL
         {
             dal.DeleteEmployee(emp);
         }
+        public void EditEmployee(EmployeeDTO emp)
+        {
+            dal.EditEmployee(emp);
+        }
     }
 }

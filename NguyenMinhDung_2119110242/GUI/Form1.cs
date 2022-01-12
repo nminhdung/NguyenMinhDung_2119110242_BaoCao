@@ -98,5 +98,27 @@ namespace NguyenMinhDung_2119110242
                 Application.Exit();
             }
         }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dataGvEmp.CurrentRow;
+            if (row != null)
+            {
+                EmployeeDTO emp = new EmployeeDTO();
+                emp.idEmployee = txtId.Text;
+                emp.Name = txtName.Text;
+                emp.DateBirth = dtDate.Value;
+                emp.Gender = cbGender.Checked;
+                emp.PlaceBirth = txtPlace.Text;
+                emp.Depart = (DepartmentDTO)comboUnit.SelectedItem;
+
+                row.Cells[0].Value = emp.idEmployee;
+                row.Cells[1].Value = emp.Name;
+                row.Cells[2].Value = emp.DateBirth;
+                row.Cells[3].Value = emp.Gender;
+                row.Cells[4].Value = emp.PlaceBirth;
+                row.Cells[5].Value = emp.Depart.Name;
+            }
+        }
     }
 }
